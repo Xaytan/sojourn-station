@@ -278,7 +278,8 @@ var/list/flooring_types
 		if(M.stats.getPerk(PERK_SURE_STEP))
 			return
  // The art of calculating the vectors required to avoid tripping on the metal beams requires big quantities of brain power
-		if(prob(50 - our_trippah.stats.getStat(STAT_COG))) //50 cog makes you unable to trip
+ // The highly aware can sense the oncoming rolled ankle from a mile away
+		if(prob(50 - max(our_trippah.stats.getStat(STAT_COG),our_trippah.stats.getStat(STAT_VIG)))) //50 cog or vig makes you unable to trip
 			if(!our_trippah.back)
 				to_chat(our_trippah, SPAN_WARNING("You would have tripped if you didn't balance."))
 				return
